@@ -1,0 +1,43 @@
+#header {
+    /* background: url("http://heroes.thelazy.net/wiki/images/thumb/6/64/Rampart-in.png/500px-Rampart-in.png"); */
+    /* background: url("http://heroes.thelazy.net/wiki/images/thumb/6/64/Rampart-in.png/500px-Rampart-in.png") center center / cover no-repeat; */
+    background: rgb(227, 166, 255);
+}
+
+body{
+    background: rgb(255, 242, 227)
+}
+
+#mainNavbar {
+    font-size: 1.5rem;
+    font-weight: 100;   
+}
+
+#header{
+    padding-top: 110px;
+}
+
+#feminino{
+    background: rgb(227, 166, 255);
+}
+
+@media (min-width: 20em) {
+    .card-columns {
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        column-count: 2;
+    }
+}
+
+@media (min-width: 62em) {
+    .card-columns {
+        -webkit-column-count: 3;
+        -moz-column-count: 3;
+        column-count: 3;
+    }
+}
+
+.card-columns .card {
+    display: inline-block;
+    width:100%;
+}
