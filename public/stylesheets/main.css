@@ -13,14 +13,6 @@ body{
     font-weight: 100;   
 }
 
-#header{
-    /* padding-top: 110px; */
-}
-
-#feminino{
-    /* background: rgb(227, 166, 255); */
-}
-
 @media (min-width: 20em) {
     .card-columns {
         -webkit-column-count: 2;
