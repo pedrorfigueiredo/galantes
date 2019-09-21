@@ -14,11 +14,11 @@ body{
 }
 
 #header{
-    padding-top: 110px;
+    /* padding-top: 110px; */
 }
 
 #feminino{
-    background: rgb(227, 166, 255);
+    /* background: rgb(227, 166, 255); */
 }
 
 @media (min-width: 20em) {

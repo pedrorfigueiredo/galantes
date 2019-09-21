@@ -24,7 +24,23 @@ app.use(flash());
 
 app.get("/", function(req, res){
     res.render("landing");
-})
+});
+
+app.get("/masculino", function(req, res){
+    res.render("masculino");
+});
+
+app.get("/feminino", function(req, res){
+    res.render("feminino");
+});
+
+app.get("/infantil-masculino", function(req, res){
+    res.render("infMasculino");
+});
+
+app.get("/infantil-feminino", function(req, res){
+    res.render("infFeminino");
+});
 
 app.listen(process.env.PORT || 3000, process.env.IP, function(){
     console.log("Server Started");
