@@ -5,7 +5,9 @@ var express         = require("express"),
     flash           = require("connect-flash"),
     passport        = require("passport"),
     LocalStrategy   = require("passport-local"),
-    methodOverride  = require("method-override");
+    methodOverride  = require("method-override"),
+    User            = require("./models/user");
+    seedUser        = require("./seedUser");
 
 //TODO requiring routes...
 
@@ -19,8 +21,24 @@ app.use(methodOverride("_method"));
 app.use(flash());
 
 //TODO seedDB();
+seedUser();
 
-//TODO Passport config
+//Passport config
+app.use(require("express-session")({
+    secret: "Once again Rusy wins cutest dog",
+    resave: false,
+    saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+app.use(function(req, res, next){
+    res.locals.currentUser = req.user;
+    next();
+});
 
 app.get("/", function(req, res){
     res.render("landing");
