@@ -21,7 +21,7 @@ app.use(methodOverride("_method"));
 app.use(flash());
 
 //TODO seedDB();
-seedUser();
+// seedUser();
 
 //Passport config
 app.use(require("express-session")({

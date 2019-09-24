@@ -6,13 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/libraries/bootstrap.min.css">
     <link rel="stylesheet" href="/stylesheets/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/df8ff1e022.js"></script>
     <title>Vista-se</title>
 </head>
 <body>
-    <nav id="mainNavbar" class="navbar navbar-expand-sm bg-white">
+    <nav id="mainNavbar" class="navbar navbar-expand-sm bg-white m-0 p-1">
         <div class="container">
-            <a href="/" class="navbar-brand m-0 p-0 mr-5">
+            <a href="/" class="navbar-brand mr-5">
                 <img src="imgs/logo.jpg" alt="Logo" id="logo">
             </a>
             <button class="navbar-toggler" data-toggle="collapse" data-target="#navLinks" aria-label="Toggle navigation">
@@ -20,16 +21,25 @@
             </button>
             <div class="collapse navbar-collapse" id="navLinks">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
+                    <li class="nav-item hover">
                         <a href="/masculino" class="nav-link text-dark">Masculino</a>
                     </li>
-                    <li id="feminino" class="nav-item">
+                    <li class="nav-item">
+                        <div class="mx-0 nav-link text-secondary">|</div>
+                    </li>
+                    <li class="nav-item hover">
                         <a href="/feminino" class="nav-link text-dark">Feminino</a>
                     </li>
                     <li class="nav-item">
+                        <div class="mx-0 nav-link text-secondary">|</div>
+                    </li>
+                    <li class="nav-item hover">
                         <a href="/infantil-masculino" class="nav-link text-dark">Infantil Masculino</a>
                     </li>
                     <li class="nav-item">
+                        <div class="mx-0 nav-link text-secondary">|</div>
+                    </li>
+                    <li class="nav-item hover">
                         <a href="/infantil-feminino" class="nav-link text-dark">Infantil Feminino</a>
                     </li>
                 </ul>
@@ -37,13 +47,10 @@
             <div class="navbar-collapse collapse">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fab fa-facebook-f text-dark px-1"></i></a>
+                        <a class="nav-link hover" href="#"><i class="fab fa-facebook-f text-dark px-1"></i></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fab fa-twitter text-dark px-1"></i></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fab fa-instagram text-dark px-1"></i></a>
+                        <a class="nav-link hover" href="#"><i class="fab fa-instagram text-dark px-1"></i></a>
                     </li>
                 </ul>
             </div>
