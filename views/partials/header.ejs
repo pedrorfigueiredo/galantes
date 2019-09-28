@@ -13,6 +13,24 @@
     <title>Vista-se</title>
 </head>
 <body>
+    <% if(user){ %>
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">  
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Modo administrador</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/add">Adicionar Roupa</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Deslogar</a>
+                </li>
+            </ul>
+        </nav>  
+    <% } %>
+
     <nav id="mainNavbar" class="navbar navbar-expand-sm m-0 p-1">
         <div class="container">
             <a href="/" class="navbar-brand mr-5">

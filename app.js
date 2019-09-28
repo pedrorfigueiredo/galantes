@@ -39,11 +39,20 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+app.use(function(req, res, next){
+    res.locals.user = req.user;
+    next();
+});
+
 app.use("/", indexRoutes);
 app.use("/masculino", masculinoRoutes);
 app.use("/feminino", femininoRoutes);
 app.use("/infantil-masculino", infMasculinoRoutes);
 app.use("/infantil-feminino", infFemininoRoutes);
+
+app.get('*', function(req, res) {
+    res.redirect("/");
+});
 
 app.listen(process.env.PORT || 3000, process.env.IP, function(){
     console.log("Server Started");

@@ -2,8 +2,9 @@ var express = require("express");
 var router = express.Router({mergeParams: true});
 var passport = require("passport");
 var Cloth = require("../models/cloth");
-var multer          = require("multer");
-var cloudinary      = require("cloudinary");
+var multer = require("multer");
+var cloudinary = require("cloudinary");
+var middleware = require("../middleware/index")
 
 //MULTER setup
 var storage = multer.diskStorage({
@@ -41,6 +42,11 @@ router.get("/login", function(req, res){
     res.render("login");
 });
 
+router.get("/logout", function(req, res){
+    req.logout();
+    res.redirect("/");
+});
+
 // handling login logic
 router.post("/login", passport.authenticate("local",
     {
@@ -49,12 +55,12 @@ router.post("/login", passport.authenticate("local",
     }), function(req, res){
 });
 
-router.get("/add", function(req, res){
+router.get("/add", middleware.isLoggedIn, function(req, res){
     res.render("add");
 });
 
 // CREATE CLOTH ROUTE
-router.post("/", upload.single("image"), function(req, res){
+router.post("/", upload.single("image"), middleware.isLoggedIn, function(req, res){
     // Get image from cloudinary
     cloudinary.v2.uploader.upload(req.file.path, function(err, result) {
         if(err){
@@ -80,7 +86,7 @@ router.post("/", upload.single("image"), function(req, res){
 });
 
 // DESTROY CLOTH ROUTE
-router.delete("/:id", function(req, res){
+router.delete("/:id", middleware.isLoggedIn, function(req, res){
     Cloth.findByIdAndRemove(req.params.id, function(err, cloth){
         if(err){
             res.redirect("/");
