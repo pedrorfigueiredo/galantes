@@ -4,10 +4,11 @@ var ClothSchema = new mongoose.Schema({
     id: {
         type: mongoose.Schema.Types.ObjectId
     },
-    tag: String,
-    img: {
-        data: Buffer, contentType: String
-    }
+    description: String,
+    tag1: String,
+    tag2: String,
+    image: String,
+    imageId: String
 });
 
 module.exports = mongoose.model("Cloth", ClothSchema);
