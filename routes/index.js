@@ -28,7 +28,13 @@ cloudinary.config({
 });
 
 router.get("/", function(req, res){
-    res.render("landing");
+    Cloth.find({}, function(err, allClothes){
+        if(err){
+            console.log(err);
+        } else{
+            res.render("landing", {clothes: allClothes});
+        }
+    })
 });
 
 router.get("/login", function(req, res){
@@ -47,6 +53,7 @@ router.get("/add", function(req, res){
     res.render("add");
 });
 
+// CREATE CLOTH ROUTE
 router.post("/", upload.single("image"), function(req, res){
     // Get image from cloudinary
     cloudinary.v2.uploader.upload(req.file.path, function(err, result) {
@@ -56,12 +63,11 @@ router.post("/", upload.single("image"), function(req, res){
         }
         // add cloudinary url for the image to the cloth object under image property
         var image = result.secure_url;
-        // req.body.image_id = result.public_id;
-        console.log(result.secure_url);
+        var imageId = result.public_id
         var description = req.body.description;
         var tag1 = req.body.tag1;
         var tag2 = req.body.tag2;
-        var newCloth = {description:description, tag1:tag1, tag2:tag2, image:image};
+        var newCloth = {description:description, tag1:tag1, tag2:tag2, image:image, imageId: imageId};
         // Create a new cloth and save to DB
         Cloth.create(newCloth, function(err, newlyCreated){
             if(err){
@@ -70,6 +76,18 @@ router.post("/", upload.single("image"), function(req, res){
                 res.redirect("/add");
             }
         });
+    });
+});
+
+// DESTROY CLOTH ROUTE
+router.delete("/:id", function(req, res){
+    Cloth.findByIdAndRemove(req.params.id, function(err, cloth){
+        if(err){
+            res.redirect("/");
+        } else{
+            res.redirect("/");
+            cloudinary.v2.uploader.destroy(cloth.imageId);
+        }
     });
 });
 
