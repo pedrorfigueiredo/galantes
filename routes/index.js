@@ -71,8 +71,9 @@ router.post("/", upload.single("image"), middleware.isLoggedIn, function(req, re
         var image = result.secure_url;
         var imageId = result.public_id
         var description = req.body.description;
-        var tag1 = req.body.tag1;
-        var tag2 = req.body.tag2;
+        var tag1 = req.body.tag1.toLowerCase();
+        var tag2 = req.body.tag2.toLowerCase();
+        if(tag2 == "calça") tag2 = "calca";
         var newCloth = {description:description, tag1:tag1, tag2:tag2, image:image, imageId: imageId};
         // Create a new cloth and save to DB
         Cloth.create(newCloth, function(err, newlyCreated){
@@ -89,9 +90,9 @@ router.post("/", upload.single("image"), middleware.isLoggedIn, function(req, re
 router.delete("/:id", middleware.isLoggedIn, function(req, res){
     Cloth.findByIdAndRemove(req.params.id, function(err, cloth){
         if(err){
-            res.redirect("/");
+            res.redirect("back");
         } else{
-            res.redirect("/");
+            res.redirect("back");
             cloudinary.v2.uploader.destroy(cloth.imageId);
         }
     });
