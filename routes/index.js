@@ -73,7 +73,6 @@ router.post("/", upload.single("image"), middleware.isLoggedIn, function(req, re
         var description = req.body.description;
         var tag1 = req.body.tag1.toLowerCase();
         var tag2 = req.body.tag2.toLowerCase();
-        if(tag2 == "calça") tag2 = "calca";
         var newCloth = {description:description, tag1:tag1, tag2:tag2, image:image, imageId: imageId};
         // Create a new cloth and save to DB
         Cloth.create(newCloth, function(err, newlyCreated){

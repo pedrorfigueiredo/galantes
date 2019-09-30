@@ -13,7 +13,8 @@ var indexRoutes           = require("./routes/index"),
     masculinoRoutes       = require("./routes/masculino"),
     femininoRoutes        = require("./routes/feminino"),
     infMasculinoRoutes    = require("./routes/infMasculino"),
-    infFemininoRoutes     = require("./routes/infFeminino");
+    infFemininoRoutes     = require("./routes/infFeminino"),
+    tags                  = require("./tags");
 
 //var url = process.env.DATABASEURL || "mongodb://localhost/clothes_project";
 var url = process.env.DATABASEURL || "mongodb+srv://pedrorf27:enem362880@clothesproject-1dbck.mongodb.net/test?retryWrites=true&w=majority";
@@ -41,6 +42,7 @@ passport.deserializeUser(User.deserializeUser());
 
 app.use(function(req, res, next){
     res.locals.user = req.user;
+    res.locals.tags = tags;
     next();
 });
 

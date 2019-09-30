@@ -41,3 +41,11 @@ hr.style-two {
 .hover:hover {
     background-color: rgb(235, 235, 235);
 }
+
+.dropdown-item.active{
+    background-color:#b6ff00;
+}
+
+#mainNavbar {
+    font-size: 1.2rem;
+}
