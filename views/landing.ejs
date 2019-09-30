@@ -11,7 +11,7 @@
         <div class="card">
             <img class="card-img-top img-fluid " src="<%= cloth.image %>" alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title"><%= cloth.description %></h5>
+                <h5 class="card-title m-0"><%= cloth.description %></h5>
                 <% if(user){ %>
                     <form class="delete-form" action="/<%= cloth._id %>?_method=DELETE" method="POST">
                         <button class="btn btn-sm btn-danger">Delete</button>
