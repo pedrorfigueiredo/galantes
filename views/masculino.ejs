@@ -13,7 +13,7 @@
                         <h5 class="card-title m-0"><%= cloth.description %></h5>
                         <% if(user){ %>
                             <form class="delete-form" action="/<%= cloth._id %>?_method=DELETE" method="POST">
-                                <button class="btn btn-sm btn-danger">Delete</button>
+                                <button class="btn btn-sm btn-danger mt-1">Delete</button>
                             </form>
                         <% } %>
                     </div>

@@ -1,0 +1,28 @@
+<% include ./partials/header %>
+
+<div class="container">
+    <h1 style="text-align: center">Adicionar Categoria</h1>
+    <div style="width: 30%; margin: 25px auto;">
+        <form action="/add-tag" method="POST">
+            <div class="form-group">
+                <label for="tag1">Tipo</label>
+                <select class="form-control" id="tag1" name="tag1">
+                  <option>Masculino</option>
+                  <option>Feminino</option>
+                  <option>Infantil masculino</option>
+                  <option>Infantil feminino</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="tag2">Descrição</label>
+                <input id="tag2" class="form-control" type="text" name="tag2" required>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-lg btn-primary btn-block">Adicionar Categoria</button>
+            </div>
+        </form>
+        <a href="/">Voltar</a>
+    </div>
+</div>
+
+<% include ./partials/footer %>

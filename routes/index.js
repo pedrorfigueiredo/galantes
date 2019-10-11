@@ -2,6 +2,7 @@ var express = require("express");
 var router = express.Router({mergeParams: true});
 var passport = require("passport");
 var Cloth = require("../models/cloth");
+var Tags = require("../models/tags");
 var multer = require("multer");
 var cloudinary = require("cloudinary");
 var middleware = require("../middleware/index")
@@ -84,6 +85,24 @@ router.post("/", upload.single("image"), middleware.isLoggedIn, function(req, re
         });
     });
 });
+
+router.get("/tags", middleware.isLoggedIn, function(req, res){
+    res.render("tags");
+});
+
+router.post("/tags", middleware.isLoggedIn, function(req, res){
+    //TODO ADD-TAG POST
+    //if already form, error
+
+    if(err){
+        console.log(err);
+    } else{
+        res.redirect("/tags");
+    }
+});
+
+// router.delete("/tags/:tag2", middleware.isLoggedIn, function(req, res){
+// });
 
 // DESTROY CLOTH ROUTE
 router.delete("/:id", middleware.isLoggedIn, function(req, res){

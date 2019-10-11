@@ -8,7 +8,8 @@ var tags = {
     feminino: {
         saia: "saia",
         vestido: "vestido",
-        calça: "calça"
+        calça: "calça",
+        outros: "outros"
     },
     infantilMasculino: {
         outros: "outros"
