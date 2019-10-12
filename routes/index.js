@@ -5,7 +5,9 @@ var Cloth = require("../models/cloth");
 var Tags = require("../models/tags");
 var multer = require("multer");
 var cloudinary = require("cloudinary");
-var middleware = require("../middleware/index")
+var middleware = require("../middleware/index");
+
+allTags = require("../initTags");
 
 //MULTER setup
 var storage = multer.diskStorage({
@@ -120,6 +122,7 @@ router.get("/tags", middleware.isLoggedIn, function(req, res){
                                     console.log(err);
                                 } else{
                                     tags.infFeminino = tagsFound;
+                                    allTags = tags;
                                     res.render("tags", {tags: tags});
                                 }
                             });
