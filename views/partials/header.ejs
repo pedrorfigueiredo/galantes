@@ -25,7 +25,7 @@
                     <a class="nav-link" href="/add">Adicionar Roupa</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/tags">Adicionar Categoria</a>
+                    <a class="nav-link" href="/tags">Editar Categorias</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/logout">Sair</a>
@@ -47,14 +47,10 @@
                     <li class="nav-item dropdown hover">
                         <a class="nav-link text-dark dropdown-toggle" href="/masculino" id="navbardrop" data-toggle="dropdown">
                           Masculino
+                          <% console.log(tags) %>
                         </a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="/masculino">Tudo</a>
-                            <% Object.keys(tags.masculino).forEach(function(key) { %>
-                                <a class="dropdown-item" href="/masculino/<%= tags.masculino[key] %>">
-                                    <%= tags.masculino[key].charAt(0).toUpperCase() + tags.masculino[key].slice(1) %>
-                                </a>
-                            <% }); %>
                         </div>
                     </li>
                     <li class="nav-item d-none d-sm-block">
@@ -66,11 +62,6 @@
                         </a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="/feminino">Tudo</a>
-                            <% Object.keys(tags.feminino).forEach(function(key) { %>
-                                <a class="dropdown-item" href="/feminino/<%= tags.feminino[key] %>">
-                                    <%= tags.feminino[key].charAt(0).toUpperCase() + tags.feminino[key].slice(1) %>
-                                </a>
-                            <% }); %>
                         </div>
                     </li>
                     <li class="nav-item d-none d-sm-block">
@@ -82,11 +73,6 @@
                         </a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="/infantil-masculino">Tudo</a>
-                            <% Object.keys(tags.infantilMasculino).forEach(function(key) { %>
-                                <a class="dropdown-item" href="/infantil-masculino/<%= tags.infantilMasculino[key] %>">
-                                    <%= tags.infantilMasculino[key].charAt(0).toUpperCase() + tags.infantilMasculino[key].slice(1) %>
-                                </a>
-                            <% }); %>
                         </div>
                     </li>
                     <li class="nav-item d-none d-sm-block">
@@ -98,11 +84,6 @@
                         </a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="/infantil-feminino">Tudo</a>
-                            <% Object.keys(tags.infantilFeminino).forEach(function(key) { %>
-                                <a class="dropdown-item" href="/infantil-feminino/<%= tags.infantilFeminino[key] %>">
-                                    <%= tags.infantilFeminino[key].charAt(0).toUpperCase() + tags.infantilFeminino[key].slice(1) %>
-                                </a>
-                            <% }); %>
                         </div>
                     </li>
                 </ul>

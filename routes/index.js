@@ -86,24 +86,6 @@ router.post("/", upload.single("image"), middleware.isLoggedIn, function(req, re
     });
 });
 
-router.get("/tags", middleware.isLoggedIn, function(req, res){
-    res.render("tags");
-});
-
-router.post("/tags", middleware.isLoggedIn, function(req, res){
-    //TODO ADD-TAG POST
-    //if already form, error
-
-    if(err){
-        console.log(err);
-    } else{
-        res.redirect("/tags");
-    }
-});
-
-// router.delete("/tags/:tag2", middleware.isLoggedIn, function(req, res){
-// });
-
 // DESTROY CLOTH ROUTE
 router.delete("/:id", middleware.isLoggedIn, function(req, res){
     Cloth.findByIdAndRemove(req.params.id, function(err, cloth){
@@ -112,6 +94,71 @@ router.delete("/:id", middleware.isLoggedIn, function(req, res){
         } else{
             res.redirect("back");
             cloudinary.v2.uploader.destroy(cloth.imageId);
+        }
+    });
+});
+
+router.get("/tags", middleware.isLoggedIn, function(req, res){
+    let tags = {};
+    Tags.find({tag1: "masculino"}, function(err, tagsFound){
+        if(err){
+            console.log(err);
+        } else{
+            tags.masculino = tagsFound;
+            Tags.find({tag1: "feminino"}, function(err, tagsFound){
+                if(err){
+                    console.log(err);
+                } else{
+                    tags.feminino = tagsFound;
+                    Tags.find({tag1: "infantil masculino"}, function(err, tagsFound){
+                        if(err){
+                            console.log(err);
+                        } else{
+                            tags.infMasculino = tagsFound;
+                            Tags.find({tag1: "infantil feminino"}, function(err, tagsFound){
+                                if(err){
+                                    console.log(err);
+                                } else{
+                                    tags.infFeminino = tagsFound;
+                                    res.render("tags", {tags: tags});
+                                }
+                            });
+                        }
+                    });
+                }
+            });
+        }
+    });
+});
+
+router.post("/tags", middleware.isLoggedIn, function(req, res){
+    Tags.findOne({tag1: req.body.tag1.toLowerCase(), tag2: req.body.tag2.toLowerCase()}, function (err, result){
+        if (err){
+            console.log(err);
+        }
+        if (!result) {
+            console.log("DONE");
+            //Create Tag
+            const newTag = {tag1: req.body.tag1.toLowerCase(), tag2: req.body.tag2.toLowerCase()};
+            Tags.create(newTag, function(err){
+                if(err){
+                    console.log(err);
+                } else{
+                    res.redirect("/tags");
+                }
+            });
+        } else{
+            console.log("This tag already exists!");
+        }
+    });
+});
+
+router.delete("/tags/:id", middleware.isLoggedIn, function(req, res){
+    Tags.findByIdAndRemove(req.params.id, function(err, tag){
+        if(err){
+            console.log(err);
+        } else{
+            res.redirect("back");
         }
     });
 });
