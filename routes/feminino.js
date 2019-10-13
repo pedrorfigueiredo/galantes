@@ -7,7 +7,7 @@ router.get("/", function(req, res){
         if(err){
             console.log(err);
         } else{
-            res.render("feminino", {clothes: allClothes});
+            res.render("landing", {clothes: allClothes});
         }
     })
 });
@@ -17,7 +17,7 @@ router.get("/:tag2", function(req, res){
         if(err){
             console.log(err);
         } else{
-            res.render("feminino", {clothes: allClothes});
+            res.render("landing", {clothes: allClothes});
         }
     })
 });
