@@ -4,6 +4,11 @@ var initTags = {
         tag1: 'masculino',
         tag2: 'camisa',
         __v: 0
+      },
+      {
+        tag1: 'masculino',
+        tag2: 'calça',
+        __v: 0
       }
     ],
     feminino: [

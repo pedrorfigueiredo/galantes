@@ -21,10 +21,11 @@
             <div class="form-group">
                 <label for="tag2">Categoria</label>
                 <select class="form-control" id="tag2" name="tag2">
-                  <option>Camisa</option>
-                  <option>Calça</option>
-                  <option>Bermuda</option>
-                  <option>Meia</option>
+                    <% tags.masculino.forEach(function(tag){ %>
+                        <option>
+                            <%= tag.tag2.charAt(0).toUpperCase() +  tag.tag2.slice(1) %>
+                        </option>
+                    <% }); %>
                 </select>
             </div>
             <div class="form-group">
