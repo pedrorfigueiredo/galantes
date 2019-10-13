@@ -42,7 +42,7 @@ router.get("/", function(req, res){
 });
 
 router.get("/login", function(req, res){
-    res.render("login");
+    res.render("login",);
 });
 
 router.get("/logout", function(req, res){
@@ -99,6 +99,19 @@ router.delete("/:id", middleware.isLoggedIn, function(req, res){
         }
     });
 });
+
+//EDIT ROUTE
+router.put("/:id", middleware.isLoggedIn, function(req, res){
+    newData = {description: req.body.description, tag2: req.body.tag2.toLowerCase()};
+    Cloth.findByIdAndUpdate(req.params.id, newData, function(err, tag){
+        if(err){
+           console.log(err);
+            res.render("back");
+        } else {
+            res.redirect("back");
+        }
+    });
+ });
 
 router.get("/tags", middleware.isLoggedIn, function(req, res){
     let tags = {};

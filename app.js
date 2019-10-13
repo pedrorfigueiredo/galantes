@@ -36,6 +36,8 @@ app.use(require("express-session")({
     resave: false,
     saveUninitialized: false
 }));
+
+app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
@@ -45,6 +47,8 @@ passport.deserializeUser(User.deserializeUser());
 app.use(function(req, res, next){
     res.locals.user = req.user;
     res.locals.tags = allTags;
+    res.locals.success = req.flash('success');
+    res.locals.error = req.flash('error');
     next();
 });
 
