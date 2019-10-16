@@ -28,15 +28,20 @@
                     <form class="form-inline my-2" action="/<%=cloth._id %>?_method=PUT" method="POST">
                         <input type="text" class="form-control" style="width: 100%;" value= "<%= cloth.description %>" name="description" id="description">
                         <select class="form-control" style="width: 60%;" name="tag2" id="tag2">
+                            <% let isNothing = true; %>
                             <% currentTags.forEach(function(tag){ %>
                                 <% let isSelected = ""; %>
                                 <% if (cloth.tag2 === tag.tag2) { %>
                                    <% isSelected = "selected"; %>
+                                   <% isNothing = false %>
                                 <% } %>
                                 <option <%= isSelected %>>
                                     <%= tag.tag2.charAt(0).toUpperCase() +  tag.tag2.slice(1) %>
                                 </option>
                             <% }); %>
+                            <% if (isNothing) { %>
+                                <option selected>Nenhuma</option>
+                            <% } %>
                         </select>
                         <button class="btn btn-sm btn-warning ml-auto">Mudar</button>
                     </form>
