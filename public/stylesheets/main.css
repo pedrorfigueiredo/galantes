@@ -42,10 +42,12 @@ hr.style-two {
     background-color: rgb(235, 235, 235);
 }
 
-.dropdown-item.active{
-    background-color:#b6ff00;
-}
-
 #mainNavbar {
     font-size: 1.0rem;
 }
+
+#dezivo {
+    height: 50px;
+}
+
+
