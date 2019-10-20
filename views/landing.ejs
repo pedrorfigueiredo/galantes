@@ -10,7 +10,7 @@
         <% clothes.forEach(function(cloth){ %>
         <div class="card">
             <img class="card-img-top img-fluid " src="<%= cloth.image %>" alt="Card image cap" data-toggle="modal" data-target="#id<%= cloth._id %>">
-            <div class="card-body">
+            <div class="card-body bg-light">
                 <p class="card-title m-0"><%= cloth.description %></p>
                 <% if(user){ %>
                     <% let currentTags = {}; %>

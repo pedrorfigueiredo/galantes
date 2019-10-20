@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/libraries/bootstrap.min.css">
     <link rel="stylesheet" href="/stylesheets/main.css">
-    <link href="https://fonts.googleapis.com/css?family=Merriweather&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/df8ff1e022.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -14,7 +14,7 @@
 </head>
 <body>
     <% if(user){ %>
-        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">  
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark mb-3">  
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <a class="nav-link disabled" href="#">Modo administrador</a>
@@ -34,7 +34,7 @@
         </nav>  
     <% } %>
 
-    <nav id="mainNavbar" class="navbar navbar-expand-sm m-0 p-1">
+    <nav id="mainNavbar" class="navbar navbar-expand-sm fixed-top bg-light">
         <div class="container">
             <a href="/" class="navbar-brand mr-5">
                 <img src="/imgs/Logo.png" alt="Logo" id="logo">
@@ -57,9 +57,6 @@
                             <% }); %>
                         </div>
                     </li>
-                    <!-- <li class="nav-item d-none d-sm-block">
-                        <div class="mx-0 nav-link text-secondary">|</div>
-                    </li> -->
                     <li class="nav-item dropdown hover">
                         <a class="nav-link text-dark dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
                             Feminino
@@ -73,9 +70,6 @@
                             <% }); %>
                         </div>
                     </li>
-                    <!-- <li class="nav-item d-none d-sm-block">
-                        <div class="mx-0 nav-link text-secondary">|</div>
-                    </li> -->
                     <li class="nav-item dropdown hover">
                         <a class="nav-link text-dark dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
                             Infantil Masculino
@@ -89,9 +83,6 @@
                             <% }); %>
                         </div>
                     </li>
-                    <!-- <li class="nav-item d-none d-sm-block">
-                        <div class="mx-0 nav-link text-secondary">|</div>
-                    </li> -->
                     <li class="nav-item dropdown hover">
                         <a class="nav-link text-dark dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
                             Infantil Feminino
@@ -110,17 +101,25 @@
             <div class="navbar-collapse collapse">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link hover" href="#"><i class="fab fa-facebook-f text-dark px-1"></i></a>
+                        <!-- <a class="nav-link hover" href="#"><i class="fab fa-facebook-f text-dark px-1"></i></a> -->
+                        <a class="nav-link hover social" href="#"><i class="fab fa-facebook-square"></i></a>
+                        <!-- <a class="nav-link hover social" href="#"><img src="/imgs/face-icon.jpeg" width="30"></a> -->
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link hover" href="#"><i class="fab fa-instagram text-dark px-1"></i></a>
+                        <a class="nav-link hover social" href="#"><i class="fab fa-instagram"></i></a>
+                        <!-- <a class="nav-link hover social" href="#"><img src="/imgs/insta-icon.jpeg" width="30"></a> -->
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link hover social" href="#"><i class="fab fa-whatsapp-square"></i></a>
+                        <!-- <a class="nav-link hover social" href="#"><img src="/imgs/whats-icon.jpeg" width="30"></a> -->
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link hover social" href="#"><i class="fab fa-instagram text-dark px-1"></i></a>
+                    </li> -->
                 </ul>
             </div>
         </div>
     </nav>
-
-    <hr class="mt-0 mb-5 style-two">
 
     <div class="container">
         <% if(error && error.length > 0) { %>
