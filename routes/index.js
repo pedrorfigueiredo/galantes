@@ -103,7 +103,7 @@ router.delete("/:id", middleware.isLoggedIn, function(req, res){
 
 //EDIT ROUTE
 router.put("/:id", middleware.isLoggedIn, function(req, res){
-    newData = {title: req.body.title, tag2: req.body.tag2.toLowerCase()};
+    newData = {title: req.body.title, description: req.body.description, tag2: req.body.tag2.toLowerCase()};
     Cloth.findByIdAndUpdate(req.params.id, newData, function(err, tag){
         if(err){
            console.log(err);

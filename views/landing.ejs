@@ -27,6 +27,7 @@
                     <% } %>
                     <form class="form-inline my-2" action="/<%=cloth._id %>?_method=PUT" method="POST">
                         <input type="text" class="form-control" style="width: 100%;" value= "<%= cloth.title %>" name="title" id="title">
+                        <textarea type="text" class="form-control" style="width: 100%;" name="description" id="description"><%= cloth.description %></textarea>
                         <select class="form-control" style="width: 60%;" name="tag2" id="tag2">
                             <% let isNothing = true; %>
                             <% currentTags.forEach(function(tag){ %>
@@ -54,9 +55,9 @@
         <div class="modal fade" id="id<%= cloth._id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header pb-0">
                     <h5 class="modal-title" id="exampleModalLabel"><%= cloth.title %></h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="btn btn-light btn-sm close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -65,7 +66,7 @@
                         <div class="col-8">
                             <img class="card-img-top img-fluid " src="<%= cloth.image %>" alt="Card image cap">
                         </div>
-                        <div class="col-4 px-0">
+                        <div class="col-4 pl-0 pr-1">
                             <p><%= cloth.description %></p>
                             <p class="mt-5">Por favor entre em contato conosco!</p>
                             <a class="social mx-1" href="https://www.facebook.com/alexsandro.pereirasantana" target="_blank"><i class="fab fa-facebook-square"></i></a>
@@ -74,7 +75,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer pt-0">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
                 </div>
                 </div>
