@@ -46,6 +46,10 @@ body {
     height: 50px;
 }
 
+.modal-body {
+    word-wrap: break-word;
+}
+
 .card-columns .card {
     display: inline-block;
     width:100%;

@@ -61,7 +61,18 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <img class="card-img-top img-fluid " src="<%= cloth.image %>" alt="Card image cap">
+                    <div class="row">
+                        <div class="col-8">
+                            <img class="card-img-top img-fluid " src="<%= cloth.image %>" alt="Card image cap">
+                        </div>
+                        <div class="col-4 px-0">
+                            <p><%= cloth.description %></p>
+                            <p class="mt-5">Por favor entre em contato conosco!</p>
+                            <a class="social mx-1" href="https://www.facebook.com/alexsandro.pereirasantana" target="_blank"><i class="fab fa-facebook-square"></i></a>
+                            <a class="social mx-1" href="https://www.instagram.com/vista_se_t.o/" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a class="social mx-1" href="http://wa.me/5533999560372" target="_blank"><i class="fab fa-whatsapp-square"></i></a>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
