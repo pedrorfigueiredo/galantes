@@ -4,6 +4,7 @@ var ClothSchema = new mongoose.Schema({
     id: {
         type: mongoose.Schema.Types.ObjectId
     },
+    title: String,
     description: String,
     tag1: String,
     tag2: String,

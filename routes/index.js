@@ -73,10 +73,10 @@ router.post("/", upload.single("image"), middleware.isLoggedIn, function(req, re
         // add cloudinary url for the image to the cloth object under image property
         var image = result.secure_url;
         var imageId = result.public_id
-        var description = req.body.description;
+        var title = req.body.title;
         var tag1 = req.body.tag1.toLowerCase();
         var tag2 = req.body.tag2.toLowerCase();
-        var newCloth = {description:description, tag1:tag1, tag2:tag2, image:image, imageId: imageId};
+        var newCloth = {title:title, tag1:tag1, tag2:tag2, image:image, imageId: imageId};
         // Create a new cloth and save to DB
         Cloth.create(newCloth, function(err, newlyCreated){
             if(err){
@@ -102,7 +102,7 @@ router.delete("/:id", middleware.isLoggedIn, function(req, res){
 
 //EDIT ROUTE
 router.put("/:id", middleware.isLoggedIn, function(req, res){
-    newData = {description: req.body.description, tag2: req.body.tag2.toLowerCase()};
+    newData = {title: req.body.title, tag2: req.body.tag2.toLowerCase()};
     Cloth.findByIdAndUpdate(req.params.id, newData, function(err, tag){
         if(err){
            console.log(err);

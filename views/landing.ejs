@@ -11,7 +11,7 @@
         <div class="card">
             <img class="card-img-top img-fluid " src="<%= cloth.image %>" alt="Card image cap" data-toggle="modal" data-target="#id<%= cloth._id %>">
             <div class="card-body bg-light">
-                <h5 class="card-title m-0"><%= cloth.description %></h5>
+                <h5 class="card-title m-0"><%= cloth.title %></h5>
                 <% if(user){ %>
                     <% let currentTags = {}; %>
                     <% if(cloth.tag1 === "masculino") { %>
@@ -26,7 +26,7 @@
                         <% currentTags = "nenhuma"; %>
                     <% } %>
                     <form class="form-inline my-2" action="/<%=cloth._id %>?_method=PUT" method="POST">
-                        <input type="text" class="form-control" style="width: 100%;" value= "<%= cloth.description %>" name="description" id="description">
+                        <input type="text" class="form-control" style="width: 100%;" value= "<%= cloth.title %>" name="title" id="title">
                         <select class="form-control" style="width: 60%;" name="tag2" id="tag2">
                             <% let isNothing = true; %>
                             <% currentTags.forEach(function(tag){ %>
@@ -46,7 +46,7 @@
                         <button class="btn btn-sm btn-warning ml-auto">Mudar</button>
                     </form>
                     <form class="delete-form" action="/<%= cloth._id %>?_method=DELETE" method="POST">
-                        <button class="btn btn-sm btn-danger mt-1">Delete</button>
+                        <button class="btn btn-sm btn-danger mt-1">Deletar</button>
                     </form>
                 <% } %>
             </div>
@@ -55,7 +55,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"><%= cloth.description %></h5>
+                    <h5 class="modal-title" id="exampleModalLabel"><%= cloth.title %></h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
