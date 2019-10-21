@@ -49,9 +49,9 @@
                           Masculino
                         </a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="/masculino">Tudo</a>
+                            <a class="dropdown-item select" href="/masculino">Tudo</a>
                             <% tags.masculino.forEach(function(tag){ %>
-                                <a class="dropdown-item masculino" href="/masculino/<%= tag.tag2 %>">
+                                <a class="dropdown-item masculino select" href="/masculino/<%= tag.tag2 %>">
                                     <%= tag.tag2.charAt(0).toUpperCase() +  tag.tag2.slice(1) %>
                                 </a>
                             <% }); %>
@@ -62,9 +62,9 @@
                             Feminino
                         </a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="/feminino">Tudo</a>
+                            <a class="dropdown-item select" href="/feminino">Tudo</a>
                             <% tags.feminino.forEach(function(tag){ %>
-                                <a class="dropdown-item feminino" href="/feminino/<%= tag.tag2 %>">
+                                <a class="dropdown-item feminino select" href="/feminino/<%= tag.tag2 %>">
                                     <%= tag.tag2.charAt(0).toUpperCase() +  tag.tag2.slice(1) %>
                                 </a>
                             <% }); %>
@@ -75,9 +75,9 @@
                             Infantil Masculino
                         </a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="/infantil-masculino">Tudo</a>
+                            <a class="dropdown-item select" href="/infantil-masculino">Tudo</a>
                             <% tags.infMasculino.forEach(function(tag){ %>
-                                <a class="dropdown-item infantil-masculino" href="/infantil-masculino/<%= tag.tag2 %>">
+                                <a class="dropdown-item infantil-masculino select" href="/infantil-masculino/<%= tag.tag2 %>">
                                     <%= tag.tag2.charAt(0).toUpperCase() +  tag.tag2.slice(1) %>
                                 </a>
                             <% }); %>
@@ -88,9 +88,9 @@
                             Infantil Feminino
                         </a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="/infantil-feminino">Tudo</a>
+                            <a class="dropdown-item select" href="/infantil-feminino">Tudo</a>
                             <% tags.infFeminino.forEach(function(tag){ %>
-                                <a class="dropdown-item infantil-feminino" href="/infantil-feminino/<%= tag.tag2 %>">
+                                <a class="dropdown-item infantil-feminino select" href="/infantil-feminino/<%= tag.tag2 %>">
                                     <%= tag.tag2.charAt(0).toUpperCase() +  tag.tag2.slice(1) %>
                                 </a>
                             <% }); %>

@@ -11,7 +11,7 @@
         <div class="card">
             <img class="card-img-top img-fluid " src="<%= cloth.image %>" alt="Card image cap" data-toggle="modal" data-target="#id<%= cloth._id %>">
             <div class="card-body bg-light">
-                <p class="card-title m-0"><%= cloth.description %></p>
+                <h5 class="card-title m-0"><%= cloth.description %></h5>
                 <% if(user){ %>
                     <% let currentTags = {}; %>
                     <% if(cloth.tag1 === "masculino") { %>
