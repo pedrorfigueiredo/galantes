@@ -34,7 +34,6 @@ cloudinary.config({
 
 router.get("/", function(req, res){
     bootCheck();
-    console.log(isBoot);
     Cloth.find({}, function(err, allClothes){
         if(err){
             console.log(err);
