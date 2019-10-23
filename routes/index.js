@@ -8,6 +8,7 @@ var cloudinary = require("cloudinary");
 var middleware = require("../middleware/index");
 
 allTags = require("../initTags");
+let isBoot = true;
 
 //MULTER setup
 var storage = multer.diskStorage({
@@ -32,6 +33,8 @@ cloudinary.config({
 });
 
 router.get("/", function(req, res){
+    bootCheck();
+    console.log(isBoot);
     Cloth.find({}, function(err, allClothes){
         if(err){
             console.log(err);
@@ -179,6 +182,42 @@ router.delete("/tags/:id", middleware.isLoggedIn, function(req, res){
         }
     });
 });
+
+bootCheck = () => {
+    if (isBoot) {
+        let tags = {};
+        Tags.find({tag1: "masculino"}, function(err, tagsFound){
+            if(err){
+                console.log(err);
+            } else{
+                tags.masculino = tagsFound;
+                Tags.find({tag1: "feminino"}, function(err, tagsFound){
+                    if(err){
+                        console.log(err);
+                    } else{
+                        tags.feminino = tagsFound;
+                        Tags.find({tag1: "infantil masculino"}, function(err, tagsFound){
+                            if(err){
+                                console.log(err);
+                            } else{
+                                tags.infMasculino = tagsFound;
+                                Tags.find({tag1: "infantil feminino"}, function(err, tagsFound){
+                                    if(err){
+                                        console.log(err);
+                                    } else{
+                                        tags.infFeminino = tagsFound;
+                                        allTags = tags;
+                                        isBoot = false;
+                                    }
+                                });
+                            }
+                        });
+                    }
+                });
+            }
+        });
+    }
+}
 
 module.exports = router;
 
