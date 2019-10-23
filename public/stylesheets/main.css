@@ -33,7 +33,7 @@ body {
     font-size: 1.2rem;
 }
 
-.select:active {
+.select:active, .select:hover {
     background-color: rgb(226, 227, 228);
     color: black;
 }
