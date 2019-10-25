@@ -50,12 +50,12 @@ body {
     width:130px;
 }
 
-.hover:hover {
-    background-color: rgb(235, 235, 235);
+#logo2 {
+    width: 220px;
 }
 
-#dezivo {
-    height: 50px;
+.hover:hover {
+    background-color: rgb(235, 235, 235);
 }
 
 .modal-body {
