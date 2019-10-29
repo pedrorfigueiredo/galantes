@@ -62,7 +62,7 @@ app.get('*', function(req, res) {
     res.redirect("/");
 });
 
-app.listen(process.env.PORT_APP || 3000, function(){
+app.listen(process.env.PORT_APP, function(){
     console.log("Server Started");
 });
 
