@@ -62,9 +62,13 @@ app.get('*', function(req, res) {
     res.redirect("/");
 });
 
-app.listen(process.env.PORT_APP || 3000, process.env.IP_APP, function(){
+app.listen(process.env.PORT_APP || 3000, function(){
     console.log("Server Started");
 });
+
+// app.listen(process.env.PORT_APP || 3000, process.env.IP_APP, function(){
+//     console.log("Server Started");
+// });
 
 // var http = require('http');
 // http.createServer(function (req, res) {
