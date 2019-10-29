@@ -62,6 +62,13 @@ app.get('*', function(req, res) {
     res.redirect("/");
 });
 
-app.listen(process.env.PORT_APP || 3000, process.env.IP, function(){
-    console.log("Server Started");
-});
+// app.listen(process.env.PORT || 3000, process.env.IP, function(){
+//     console.log("Server Started");
+// });
+
+var http = require('http');
+http.createServer(function (req, res) {
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.end('Hello Vista-se app\n');
+}).listen(process.env.PORT_APP);
+console.log('Server running at :'+process.env.PORT_APP);
