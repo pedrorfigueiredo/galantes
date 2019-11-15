@@ -9,9 +9,9 @@ var express = require("express"),
     User = require("./models/user"),
     Tags = require("./models/tags"),
     seedUser = require("./seedUser"),
-    seedTags = require("./seedTags");
-fs = require('fs');
-https = require('https');
+    seedTags = require("./seedTags"),
+    fs = require('fs'),
+    https = require('https');
 
 var indexRoutes = require("./routes/index"),
     masculinoRoutes = require("./routes/masculino"),
@@ -64,14 +64,14 @@ app.get('*', function (req, res) {
     res.redirect("/");
 });
 
-// app.listen(21127, function(){
-//     console.log("Server Started");
-// });
+app.listen(21127, function(){
+    console.log("Server Started");
+});
 
 https.createServer({
     key: fs.readFileSync('server.key'),
     cert: fs.readFileSync('server.cert')
 }, app)
-    .listen(21127, function () {
+    .listen(443, function () {
         console.log('Https Server Started')
     })
