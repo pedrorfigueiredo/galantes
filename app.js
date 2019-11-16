@@ -9,7 +9,7 @@ var express = require("express"),
     User = require("./models/user"),
     Tags = require("./models/tags"),
     seedUser = require("./seedUser"),
-    seedTags = require("./seedTags"),
+    seedTags = require("./seedTags");
     // fs = require('fs'),
     // https = require('https');
 
