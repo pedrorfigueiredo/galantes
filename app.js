@@ -10,8 +10,8 @@ var express = require("express"),
     Tags = require("./models/tags"),
     seedUser = require("./seedUser"),
     seedTags = require("./seedTags"),
-    fs = require('fs'),
-    https = require('https');
+    // fs = require('fs'),
+    // https = require('https');
 
 var indexRoutes = require("./routes/index"),
     masculinoRoutes = require("./routes/masculino"),
@@ -67,11 +67,11 @@ app.get('*', function (req, res) {
 app.listen(21127, function(){
     console.log("Server Started");
 });
-//test
-https.createServer({
-    key: fs.readFileSync('server.key'),
-    cert: fs.readFileSync('server.cert')
-}, app)
-    .listen(443, function () {
-        console.log('Https Server Started')
-    })
+
+// https.createServer({
+//     key: fs.readFileSync('server.key'),
+//     cert: fs.readFileSync('server.cert')
+// }, app)
+//     .listen(443, function () {
+//         console.log('Https Server Started')
+//     })
