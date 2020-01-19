@@ -27,9 +27,9 @@ var upload = multer({ storage: storage, fileFilter: imageFilter})
 
 //Cloudinary setup
 cloudinary.config({ 
-    cloud_name: "vista-se",
-    api_key: "581682629177743",
-    api_secret: "g5hVoX6lMi6aKsBx2K7etCegFwg"
+    cloud_name: process.env.CLOUD_NAME,
+    api_key: process.env.CLOUD_KEY,
+    api_secret: process.env.CLOUD_SECRET
 });
 
 router.get("/", function(req, res){

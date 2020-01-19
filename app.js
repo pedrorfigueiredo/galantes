@@ -19,10 +19,7 @@ var indexRoutes = require("./routes/index"),
     infMasculinoRoutes = require("./routes/infMasculino"),
     infFemininoRoutes = require("./routes/infFeminino");
 
-//var url = process.env.DATABASEURL || "mongodb://localhost/clothes_project";
-var url = process.env.DATABASEURL || "mongodb+srv://pedrorf27:enem362880@clothesproject-1dbck.mongodb.net/test?retryWrites=true&w=majority";
-
-mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(process.env.DB_URL, { useNewUrlParser: true, useUnifiedTopology: true });
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
@@ -34,7 +31,7 @@ app.use(methodOverride("_method"));
 
 //Passport config
 app.use(require("express-session")({
-    secret: "150 pages a hour",
+    secret: process.env.PSP_SECRET,
     resave: false,
     saveUninitialized: false
 }));
@@ -64,14 +61,6 @@ app.get('*', function (req, res) {
     res.redirect("/");
 });
 
-app.listen(21127, function(){
+app.listen(process.env.PORT || 3000, process.env.IP, function(){
     console.log("Server Started");
 });
-
-// https.createServer({
-//     key: fs.readFileSync('server.key'),
-//     cert: fs.readFileSync('server.cert')
-// }, app)
-//     .listen(443, function () {
-//         console.log('Https Server Started')
-//     })
