@@ -1,4 +1,4 @@
 # Galantes
 
-Mostruário Loja Online.
-Node.js Fullstack
+Protótipo de mostruário online.
+Node.js
