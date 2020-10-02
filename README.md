@@ -16,9 +16,9 @@ It is made in Node.js + MongoDB.
 npm install
 ```
 
-## Running
-
 You'll need to configure your environment variables for MongoDB database, Passport and Cloudinary file server.
+
+## Running
 
 ```sh
 npm start
