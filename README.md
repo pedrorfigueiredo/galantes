@@ -18,6 +18,8 @@ npm install
 
 ## Running
 
+You'll have to configure your environment variables for MongoDB database, passport and cloudinary file server.
+
 ```sh
 npm start
 ```
