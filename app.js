@@ -7,7 +7,6 @@ var express         = require("express"),
     LocalStrategy   = require("passport-local"),
     methodOverride  = require("method-override"),
     User            = require("./models/user"),
-    seedUser        = require("./seedUser");
     
 var indexRoutes           = require("./routes/index"),
     masculinoRoutes       = require("./routes/masculino"),
@@ -16,8 +15,7 @@ var indexRoutes           = require("./routes/index"),
     infFemininoRoutes     = require("./routes/infFeminino"),
     tags                  = require("./tags");
 
-//var url = process.env.DATABASEURL || "mongodb://localhost/clothes_project";
-var url = process.env.DATABASEURL || "mongodb+srv://pedrorf27:enem362880@clothesproject-1dbck.mongodb.net/test?retryWrites=true&w=majority";
+var url = process.env.DATABASEURL || `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0-sirbp.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
 
 mongoose.connect(url,  { useNewUrlParser: true, useUnifiedTopology: true });
 
@@ -25,8 +23,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
-
-// seedUser();
 
 //Passport config
 app.use(require("express-session")({
