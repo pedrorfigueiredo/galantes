@@ -1,0 +1,9 @@
+{
+    "env": {
+        "DB_URL": "mongodb+srv://pedrorf27:enem362880@clothesproject-1dbck.mongodb.net/test?retryWrites=true&w=majority",
+        "PSP_SECRET": "150 pages a hour",
+        "CLOUD_NAME": "vista-se",
+        "CLOUD_KEY": "581682629177743",
+        "CLOUD_SECRET": "g5hVoX6lMi6aKsBx2K7etCegFwg"
+    }
+}

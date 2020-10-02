@@ -1,0 +1,83 @@
+<% include ./partials/header %>
+
+<div class="container">
+    <h2 class="mb-4" style="text-align: center">Categorias Cadastradas</h2>
+    <div class="row text-center mb-4">
+        <div class="col-sm">
+            <ul class="list-group">
+                <li class="list-group-item active py-0">Masculino</li>
+                <% tags.masculino.forEach(function(tag){ %>
+                    <li class="list-group-item py-0">
+                        <form class="delete-form d-flex" action="/tags/<%= tag._id %>?_method=DELETE" method="POST">
+                            <p class="m-0 p-0"><%= tag.tag2.charAt(0).toUpperCase() +  tag.tag2.slice(1) %></p>
+                            <button class="btn btn-sm btn-danger m-0 py-0 ml-auto">X</button>
+                        </form>
+                    </li>
+                <% }); %>
+            </ul>
+        </div>
+        <div class="col-sm">
+            <ul class="list-group">
+                <li class="list-group-item active py-0">Feminino</li>
+                <% tags.feminino.forEach(function(tag){ %>
+                    <li class="list-group-item py-0">
+                        <form class="delete-form d-flex" action="/tags/<%= tag._id %>?_method=DELETE" method="POST">
+                            <p class="m-0 p-0"><%= tag.tag2.charAt(0).toUpperCase() +  tag.tag2.slice(1) %></p>
+                            <button class="btn btn-sm btn-danger m-0 py-0 ml-auto">X</button>
+                        </form>
+                    </li>
+                <% }); %>
+            </ul>
+        </div>
+        <div class="col-sm">
+            <ul class="list-group">
+                <li class="list-group-item active py-0">Infantil Masculino</li>
+                <% tags.infMasculino.forEach(function(tag){ %>
+                    <li class="list-group-item py-0">
+                        <form class="delete-form d-flex" action="/tags/<%= tag._id %>?_method=DELETE" method="POST">
+                            <p class="m-0 p-0"><%= tag.tag2.charAt(0).toUpperCase() +  tag.tag2.slice(1) %></p>
+                            <button class="btn btn-sm btn-danger m-0 py-0 ml-auto">X</button>
+                        </form>
+                    </li>
+                <% }); %>
+            </ul>
+        </div>
+        <div class="col-sm">
+            <ul class="list-group">
+                <li class="list-group-item active py-0">Infantil Feminino</li>
+                <% tags.infFeminino.forEach(function(tag){ %>
+                    <li class="list-group-item py-0">
+                        <form class="delete-form d-flex" action="/tags/<%= tag._id %>?_method=DELETE" method="POST">
+                            <p class="m-0 p-0"><%= tag.tag2.charAt(0).toUpperCase() +  tag.tag2.slice(1) %></p>
+                            <button class="btn btn-sm btn-danger m-0 py-0 ml-auto">X</button>
+                        </form>
+                    </li>
+                <% }); %>
+            </ul>
+        </div>
+    </div>
+    <h2 style="text-align: center">Adicionar Nova Categoria</h2>
+    <div style="width: 30%; margin: 25px auto;">
+        <form action="/tags" method="POST">
+            <div class="form-group">
+                <label for="tag1">Tipo</label>
+                <select class="form-control" id="tag1" name="tag1">
+                  <option>Masculino</option>
+                  <option>Feminino</option>
+                  <option>Infantil masculino</option>
+                  <option>Infantil feminino</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="tag2">Categoria</label>
+                <input id="tag2" class="form-control" type="text" name="tag2" required>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-lg btn-primary btn-block">Adicionar Categoria</button>
+            </div>
+        </form>
+        <a href="/">Voltar</a>
+    </div>
+</div>
+
+<% include ./partials/footer %>

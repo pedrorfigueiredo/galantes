@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body {
     font-family: 'Merriweather', serif;
 }
@@ -49,3 +50,91 @@ hr.style-two {
 #mainNavbar {
     font-size: 1.0rem;
 }
+=======
+body {
+    font-family: 'Josefin Sans', sans-serif;
+    margin-top: 100px;
+}
+
+#mainNavbar {
+    font-size: 1.5rem;
+    font-weight: 100;   
+}
+
+.social {
+    color: black;
+}
+
+.social:hover {
+    color: black;
+    text-decoration: none;
+}
+
+.nav-item .fab {
+    font-size: 1.5rem;
+}
+
+.fab {
+    font-size: 2rem;
+}
+
+.dropdown-menu {
+    background-color: #F8F9FA;
+}
+
+.select {
+    font-size: 1.2rem;
+}
+
+.select:active, .select:hover {
+    background-color: rgb(226, 227, 228);
+    color: black;
+}
+
+.modal-header {
+    border-bottom: 0 none;
+}
+
+.modal-footer {
+    border-top: 0 none;
+}
+
+#logo {
+    width:130px;
+}
+
+#logo2 {
+    width: 220px;
+}
+
+.hover:hover {
+    background-color: rgb(235, 235, 235);
+}
+
+.modal-body {
+    word-wrap: break-word;
+}
+
+.card-columns .card {
+    display: inline-block;
+    width:100%;
+}
+
+@media (min-width: 20em) {
+    .card-columns {
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        column-count: 2;
+    }
+}
+
+@media (min-width: 62em) {
+    .card-columns {
+        -webkit-column-count: 4;
+        -moz-column-count: 4;
+        column-count: 4;
+    }
+}
+
+
+>>>>>>> 9b52bc9d29036fb0ab8fc1e5e0d39cef5f46a069

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Logs
 logs
 *.log
@@ -114,3 +115,8 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+=======
+node_modules
+seedTags.js
+seedUser.js
+>>>>>>> 9b52bc9d29036fb0ab8fc1e5e0d39cef5f46a069

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -118,3 +119,131 @@
     </nav>
 
     <hr class="mt-0 mb-5 style-two">
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="/imgs/favicon.ico">
+    <link rel="stylesheet" href="/libraries/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/df8ff1e022.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <title>Galantes Loja Online</title>
+</head>
+<body>
+    <% if(user){ %>
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark mb-3">  
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Modo administrador</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/add">Adicionar Roupa</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/tags">Editar Categorias</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Sair</a>
+                </li>
+            </ul>
+        </nav>  
+    <% } %>
+
+    <nav id="mainNavbar" class="navbar navbar-expand-sm fixed-top bg-light">
+        <div class="container">
+            <a href="/" class="navbar-brand mr-5 text-dark pt-3">
+                <h4>GALANTES</h2>
+            </a>
+            <button class="navbar-toggler navbar-light" data-toggle="collapse" data-target="#navLinks" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navLinks">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown hover">
+                        <a class="nav-link text-dark dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                          Masculino
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item select" href="/masculino">Tudo</a>
+                            <% tags.masculino.forEach(function(tag){ %>
+                                <a class="dropdown-item masculino select" href="/masculino/<%= tag.tag2 %>">
+                                    <%= tag.tag2.charAt(0).toUpperCase() +  tag.tag2.slice(1) %>
+                                </a>
+                            <% }); %>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown hover">
+                        <a class="nav-link text-dark dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                            Feminino
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item select" href="/feminino">Tudo</a>
+                            <% tags.feminino.forEach(function(tag){ %>
+                                <a class="dropdown-item feminino select" href="/feminino/<%= tag.tag2 %>">
+                                    <%= tag.tag2.charAt(0).toUpperCase() +  tag.tag2.slice(1) %>
+                                </a>
+                            <% }); %>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown hover">
+                        <a class="nav-link text-dark dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                            Infantil Masculino
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item select" href="/infantil-masculino">Tudo</a>
+                            <% tags.infMasculino.forEach(function(tag){ %>
+                                <a class="dropdown-item infantil-masculino select" href="/infantil-masculino/<%= tag.tag2 %>">
+                                    <%= tag.tag2.charAt(0).toUpperCase() +  tag.tag2.slice(1) %>
+                                </a>
+                            <% }); %>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown hover">
+                        <a class="nav-link text-dark dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                            Infantil Feminino
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item select" href="/infantil-feminino">Tudo</a>
+                            <% tags.infFeminino.forEach(function(tag){ %>
+                                <a class="dropdown-item infantil-feminino select" href="/infantil-feminino/<%= tag.tag2 %>">
+                                    <%= tag.tag2.charAt(0).toUpperCase() +  tag.tag2.slice(1) %>
+                                </a>
+                            <% }); %>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link hover social" href="#" target="_blank"><i class="fab fa-facebook-square"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link hover social" href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link hover social" href="#" target="_blank"><i class="fab fa-whatsapp-square"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <% if(error && error.length > 0) { %>
+            <div class="alert alert-danger"><p><%=error %></p></div>
+        <% } %>
+        
+        <% if(success && success.length > 0) { %>
+            <div class="alert alert-success"><p><%= success %></p></div>
+        <% } %>
+    </div>
+>>>>>>> 9b52bc9d29036fb0ab8fc1e5e0d39cef5f46a069

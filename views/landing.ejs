@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <% include ./partials/header %>
 
 <div class="container">
@@ -23,4 +24,93 @@
     </div>
 </div>  
 
+=======
+<% include ./partials/header %>
+
+<div class="container">
+    <% if (clothes.length < 1){ %>
+        <h2 class="text-center">Oops!! Nada a mostrar por enquanto...</h2>
+        <div style="height:274px;">
+        </div>
+    <% } %>
+    <div class="card-columns">
+        <% clothes.forEach(function(cloth){ %>
+        <div class="card">
+            <img class="card-img-top img-fluid " src="<%= cloth.image %>" alt="Card image cap" data-toggle="modal" data-target="#id<%= cloth._id %>">
+            <div class="card-body bg-light">
+                <h5 class="card-title m-0"><%= cloth.title %></h5>
+                <% if(user){ %>
+                    <% let currentTags = {}; %>
+                    <% if(cloth.tag1 === "masculino") { %>
+                        <% currentTags = tags.masculino; %>
+                    <% } else if(cloth.tag1 === "feminino") { %>
+                        <% currentTags = tags.feminino; %>
+                    <% } else if(cloth.tag1 === "infantil masculino") { %>
+                        <% currentTags = tags.infMasculino; %>
+                    <% } else if(cloth.tag1 === "infantil feminino") { %>
+                        <% currentTags = tags.infFeminino; %>
+                    <% } else { %>
+                        <% currentTags = "nenhuma"; %>
+                    <% } %>
+                    <form class="form-inline my-2" action="/<%=cloth._id %>?_method=PUT" method="POST">
+                        <input type="text" class="form-control" style="width: 100%;" value= "<%= cloth.title %>" name="title" id="title">
+                        <textarea type="text" class="form-control" style="width: 100%;" name="description" id="description"><%= cloth.description %></textarea>
+                        <select class="form-control" style="width: 60%;" name="tag2" id="tag2">
+                            <% let isNothing = true; %>
+                            <% currentTags.forEach(function(tag){ %>
+                                <% let isSelected = ""; %>
+                                <% if (cloth.tag2 === tag.tag2) { %>
+                                   <% isSelected = "selected"; %>
+                                   <% isNothing = false %>
+                                <% } %>
+                                <option <%= isSelected %>>
+                                    <%= tag.tag2.charAt(0).toUpperCase() +  tag.tag2.slice(1) %>
+                                </option>
+                            <% }); %>
+                            <% if (isNothing) { %>
+                                <option selected>Nenhuma</option>
+                            <% } %>
+                        </select>
+                        <button class="btn btn-sm btn-warning ml-auto">Mudar</button>
+                    </form>
+                    <form class="delete-form" action="/<%= cloth._id %>?_method=DELETE" method="POST">
+                        <button class="btn btn-sm btn-danger mt-1">Deletar</button>
+                    </form>
+                <% } %>
+            </div>
+        </div>
+        <div class="modal fade" id="id<%= cloth._id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header pb-0">
+                    <h5 class="modal-title" id="exampleModalLabel"><%= cloth.title %></h5>
+                    <button type="button" class="btn btn-light btn-sm close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-8">
+                            <img class="card-img-top img-fluid " src="<%= cloth.image %>" alt="Card image cap">
+                        </div>
+                        <div class="col-4 pl-0 pr-1">
+                            <p><%= cloth.description %></p>
+                            <p class="mt-5">Por favor entre em contato conosco!</p>
+                            <a class="social mx-1" href="#" target="_blank"><i class="fab fa-facebook-square"></i></a>
+                            <a class="social mx-1" href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a class="social mx-1" href="#" target="_blank"><i class="fab fa-whatsapp-square"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer pt-0">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                </div>
+                </div>
+            </div>
+        </div>
+        <% }); %>
+    </div>
+</div>  
+
+>>>>>>> 9b52bc9d29036fb0ab8fc1e5e0d39cef5f46a069
 <% include ./partials/footer %>
