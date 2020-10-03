@@ -8,7 +8,7 @@ Demo: [Galantes Store](https://floating-peak-34989.herokuapp.com/)
 
 "Galantes Store" is an e-commerce prototype app. 
 
-It is made in Node.js + MongoDB.
+Created using Node.js + Express + MongoDB.
 
 ## Install
 
